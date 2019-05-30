@@ -7,12 +7,12 @@
         <module>eureka</module>
         <module>shop-api</module>
         <module>shop-common</module>
-        <module>shop-user-facade</module>
-        <module>shop-user-facade-impl</module>
         <module>shop-order-facade</module>
         <module>shop-order-facade-impl</module>
         <module>shop-product-facade</module>
         <module>shop-product-facade-impl</module>
+        <module>shop-user-facade</module>
+        <module>shop-user-facade-impl</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -20,6 +20,7 @@
         <version>2.1.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+    
     <groupId>com.xuan</groupId>
     <artifactId>shop</artifactId>
     <version>0.0.1-SNAPSHOT</version>
