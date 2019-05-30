@@ -12,6 +12,7 @@
     <groupId>com.xuan</groupId>
     <artifactId>shop-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <dependencies>
         <!-- druid数据库连接池 -->
         <dependency>
