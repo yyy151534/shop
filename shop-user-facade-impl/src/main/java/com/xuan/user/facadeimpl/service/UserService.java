@@ -1,4 +1,8 @@
 package com.xuan.user.facadeimpl.service;
 
-public class UserService {
+import com.xuan.user.facadeimpl.entity.User;
+
+public interface UserService {
+
+    void insertUser(User user);
 }
