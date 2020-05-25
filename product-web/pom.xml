@@ -13,4 +13,10 @@
     <groupId>com.xuan</groupId>
     <version>${shop.version}</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.xuan</groupId>
+            <artifactId>product-facade</artifactId>
+        </dependency>
+    </dependencies>
 </project>

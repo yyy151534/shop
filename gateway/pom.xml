@@ -13,4 +13,24 @@
     <groupId>com.xuan</groupId>
     <version>${shop.version}</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.xuan</groupId>
+            <artifactId>shop-common</artifactId>
+        </dependency>
+        <!-- Gateway Server -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

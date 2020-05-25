@@ -13,4 +13,14 @@
     <groupId>com.xuan</groupId>
     <version>${shop.version}</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.xuan</groupId>
+            <artifactId>shop-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xuan</groupId>
+            <artifactId>shop-filter</artifactId>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,7 +1,5 @@
 package com.xuan.common.utils;
 
-import static java.lang.Thread.sleep;
-
 public class SnowFlakeUtils {
 
     /**
