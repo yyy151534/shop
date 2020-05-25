@@ -5,14 +5,16 @@
     <packaging>pom</packaging>
     <modules>
         <module>eureka</module>
-        <module>shop-api</module>
+        <module>gateway</module>
         <module>shop-common</module>
-        <module>shop-order-facade</module>
-        <module>shop-order-facade-impl</module>
-        <module>shop-product-facade</module>
-        <module>shop-product-facade-impl</module>
-        <module>shop-user-facade</module>
-        <module>shop-user-facade-impl</module>
+        <module>order-facade</module>
+        <module>order-web</module>
+        <module>shop-filter</module>
+        <module>product-facade</module>
+        <module>product-web</module>
+        <module>user-facade</module>
+        <module>user-web</module>
+
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -28,10 +30,78 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
+        <shop.version>1.0.0-SNAPSHOT</shop.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
     </properties>
 
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xuan</groupId>
+                <artifactId>eureka</artifactId>
+                <version>${shop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xuan</groupId>
+                <artifactId>gateway</artifactId>
+                <version>${shop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xuan</groupId>
+                <artifactId>shop-filter</artifactId>
+                <version>${shop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xuan</groupId>
+                <artifactId>shop-common</artifactId>
+                <version>${shop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xuan</groupId>
+                <artifactId>order-facade</artifactId>
+                <version>${shop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xuan</groupId>
+                <artifactId>order-web</artifactId>
+                <version>${shop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xuan</groupId>
+                <artifactId>product-facade</artifactId>
+                <version>${shop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xuan</groupId>
+                <artifactId>product-web</artifactId>
+                <version>${shop.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xuan</groupId>
+                <artifactId>user-facade</artifactId>
+                <version>${shop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xuan</groupId>
+                <artifactId>user-web</artifactId>
+                <version>${shop.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
