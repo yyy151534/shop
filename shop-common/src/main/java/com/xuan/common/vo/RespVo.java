@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 @Data
 @AllArgsConstructor
-public class ResponseVo<T> implements Serializable {
+public class RespVo<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -29,7 +29,7 @@ public class ResponseVo<T> implements Serializable {
      * @param <T> 范型变量
      * @return BaseResp<T>
      */
-    public static <T> ResponseVo<T> onSuc() {
+    public static <T> RespVo<T> onSuc() {
         return onSuc(null);
     }
 
@@ -41,7 +41,7 @@ public class ResponseVo<T> implements Serializable {
      * @param <T> 范型变量
      * @return BaseResp<T>
      */
-    public static <T> ResponseVo<T> onSuc(T data) {
+    public static <T> RespVo<T> onSuc(T data) {
         return build(ErrorCodeEnum.SUCCESS.getCode(), ErrorCodeEnum.SUCCESS.getMsg(), data);
     }
 
@@ -52,7 +52,7 @@ public class ResponseVo<T> implements Serializable {
      * @param <T> 范型变量
      * @return BaseResp<T>
      */
-    public static <T> ResponseVo<T> onFail(ErrorCodeEnum errorCodeEnum) {
+    public static <T> RespVo<T> onFail(ErrorCodeEnum errorCodeEnum) {
         return onFail(errorCodeEnum.getCode(), errorCodeEnum.getMsg());
     }
 
@@ -64,7 +64,7 @@ public class ResponseVo<T> implements Serializable {
      * @param <T> 范型变量
      * @return BaseResp<T>
      */
-    public static <T> ResponseVo<T> onFail(int code, String msg) {
+    public static <T> RespVo<T> onFail(int code, String msg) {
         return build(code, msg, null);
     }
 
@@ -77,7 +77,7 @@ public class ResponseVo<T> implements Serializable {
      * @param <T> 范型变量
      * @return BaseResp<T>
      */
-    private static <T> ResponseVo<T> build(int code, String msg, T data) {
-        return new ResponseVo<T>(code, msg, data);
+    private static <T> RespVo<T> build(int code, String msg, T data) {
+        return new RespVo<T>(code, msg, data);
     }
 }
