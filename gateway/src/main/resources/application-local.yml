@@ -1,0 +1,79 @@
+#应用名称
+spring:
+  application:
+    name: gateway
+  #    springcloud配置
+  cloud:
+    #    gateway网关组件配置
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      #    找不到服务实例时将503提示改为404
+      loadbalancer:
+        use404: false
+      #        路由规则设置
+      routes:
+      #      LoadBalancerClient过滤器,将带有lb（LoadBalance负载均衡）方案的uri,解析为实际的主机和端口，并替换相同属性中的URI
+      - id: user_route
+        uri: lb://user-web
+        predicates:
+        - Path=/user/**
+        filters:
+        - StripPrefix= 1
+
+      #        order服务的路由
+      - id: order_route
+        uri: lb://order-web
+        predicates:
+        - Path=/order/**
+        filters:
+        - StripPrefix= 1
+#      - id: msg_route
+#        uri: lb://msg-web
+#        predicates:
+#        - Path=/msg/**
+#        filters:
+#        - StripPrefix= 1
+#  redis:
+#    database: 0
+#    timeout: 10000
+#    host: 192.168.13.171
+#    port: 6379
+#    password: iampassword
+#    # 使用 lettuce 连接池需要引入 commons-pools2 包 group: 'org.apache.commons', name: 'commons-pool2', version: '2.6.0'
+#    lettuce:
+#      pool:
+#        max-active: 1000
+#        max-idle: 100
+#        min-idle: 20
+eureka:
+  instance:
+    preferIpAddress: true
+    #服务向注册中心提供心跳的时间间隔
+    lease-renewal-interval-in-seconds: 5
+    #EurekaServer检查client续约过期心跳检测间隔10秒（检查不到心跳该服务实例可能被注销或是保留）
+    lease-expiration-duration-in-seconds: 10
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    #      启动健康状态上报
+    healthcheck:
+      enabled: true
+ribbon:
+  eureka:
+    enabled: true
+#熔断器开关
+#feign:
+#  hystrix:
+#    enabled: true
+
+hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 5000
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    root: info
+log:
+  path: /home/admin/gateway/logs/

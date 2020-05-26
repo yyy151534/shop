@@ -1,7 +1,7 @@
 package com.xuan.common.exception;
 
 import com.xuan.common.enums.ErrorCodeEnum;
-import com.xuan.common.vo.ResponseVo;
+import com.xuan.common.vo.RespVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,24 +21,24 @@ import javax.servlet.http.HttpServletResponse;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler
-    public ResponseEntity<ResponseVo<Object>> handleException(Exception e, HttpServletResponse servletResponse) {
+    public ResponseEntity<RespVo<Object>> handleException(Exception e, HttpServletResponse servletResponse) {
         log.error("RespException", e);
-        ResponseVo<Object> resp;
+        RespVo<Object> resp;
         HttpStatus status;
         if (e instanceof RespException) {
             status = HttpStatus.OK;
             RespException exception = (RespException) e;
-            resp = ResponseVo.onFail(exception.getCode(), exception.getMessage());
+            resp = RespVo.onFail(exception.getCode(), exception.getMessage());
         }else if(e instanceof MethodArgumentNotValidException){
             status = HttpStatus.OK;
             MethodArgumentNotValidException exception = (MethodArgumentNotValidException) e;
-            resp = ResponseVo.onFail(ErrorCodeEnum.PARAM_ERROR.getCode(),exception.getBindingResult().getFieldError().getDefaultMessage());
+            resp = RespVo.onFail(ErrorCodeEnum.PARAM_ERROR.getCode(),exception.getBindingResult().getFieldError().getDefaultMessage());
         }else if(e instanceof HttpMessageNotReadableException){
             status = HttpStatus.OK;
-            resp = ResponseVo.onFail(ErrorCodeEnum.PARAM_ERROR);
+            resp = RespVo.onFail(ErrorCodeEnum.PARAM_ERROR);
         }else{
             status = HttpStatus.INTERNAL_SERVER_ERROR;
-            resp = ResponseVo.onFail(ErrorCodeEnum.ERROR.getCode(), ErrorCodeEnum.ERROR.getMsg());
+            resp = RespVo.onFail(ErrorCodeEnum.ERROR.getCode(), ErrorCodeEnum.ERROR.getMsg());
         }
         return new ResponseEntity<>(resp, status);
     }

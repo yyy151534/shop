@@ -17,6 +17,12 @@
         <dependency>
             <groupId>com.xuan</groupId>
             <artifactId>shop-common</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- Gateway Server -->
         <dependency>
