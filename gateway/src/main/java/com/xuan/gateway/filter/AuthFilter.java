@@ -1,8 +1,8 @@
 package com.xuan.gateway.filter;
 
-import com.alibaba.fastjson.JSON;
-import com.xuan.common.enums.ErrorCodeEnum;
-import com.xuan.common.utils.RedisUtils;
+//import com.alibaba.fastjson.JSON;
+//import com.xuan.common.enums.ErrorCodeEnum;
+//import com.xuan.common.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -32,8 +32,8 @@ public class AuthFilter implements GlobalFilter, Order {
 
     private final String TOKEN = "token";
 
-    @Autowired
-    private RedisUtils redisUtils;
+//    @Autowired
+//    private RedisUtils redisUtils;
 
     /**
      * 过滤器顺序
@@ -109,11 +109,11 @@ public class AuthFilter implements GlobalFilter, Order {
         return null;
     }
 
-    private byte[] getResponse(ErrorCodeEnum errorCodeEnum){
-        Map<String, String> map = new HashMap<>();
-        map.put("code", errorCodeEnum.getCode()+"");
-        map.put("msg", errorCodeEnum.getMsg());
-        byte[] bytes = JSON.toJSONString(map).getBytes(StandardCharsets.UTF_8);
-        return bytes;
-    }
+//    private byte[] getResponse(ErrorCodeEnum errorCodeEnum){
+//        Map<String, String> map = new HashMap<>();
+//        map.put("code", errorCodeEnum.getCode()+"");
+//        map.put("msg", errorCodeEnum.getMsg());
+//        byte[] bytes = JSON.toJSONString(map).getBytes(StandardCharsets.UTF_8);
+//        return bytes;
+//    }
 }

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 public class LoginServiceImpl implements LoginService {
     @Override
     public LoginCacheVo login() {
-        return new LoginCacheVo();
+        LoginCacheVo loginCacheVo = new LoginCacheVo();
+        loginCacheVo.setId(10000L);
+        return loginCacheVo;
     }
 }
