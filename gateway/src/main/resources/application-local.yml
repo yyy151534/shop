@@ -21,7 +21,13 @@ spring:
         - Path=/user/**
         filters:
         - StripPrefix= 1
-
+          args:
+            #用于限流的键的解析器的 Bean 对象的名字。它使用 SpEL 表达式根据#{@beanName}从 Spring 容器中获取 Bean 对象。
+            key-resolver: "#{@uriKeyResolver}"
+            #令牌桶每秒填充平均速率
+            redis-rate-limiter.replenishRate: 1
+            #令牌桶总容量
+            redis-rate-limiter.burstCapacity: 10
       #        order服务的路由
       - id: order_route
         uri: lb://order-web
