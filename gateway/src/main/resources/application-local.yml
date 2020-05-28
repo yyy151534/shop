@@ -21,13 +21,14 @@ spring:
         - Path=/user/**
         filters:
         - StripPrefix= 1
+        - name: RequestRateLimiter
           args:
             #用于限流的键的解析器的 Bean 对象的名字。它使用 SpEL 表达式根据#{@beanName}从 Spring 容器中获取 Bean 对象。
             key-resolver: "#{@uriKeyResolver}"
             #令牌桶每秒填充平均速率
             redis-rate-limiter.replenishRate: 1
             #令牌桶总容量
-            redis-rate-limiter.burstCapacity: 10
+            redis-rate-limiter.burstCapacity: 20
       #        order服务的路由
       - id: order_route
         uri: lb://order-web
@@ -41,18 +42,17 @@ spring:
 #        - Path=/msg/**
 #        filters:
 #        - StripPrefix= 1
-#  redis:
-#    database: 0
-#    timeout: 10000
-#    host: 192.168.13.171
-#    port: 6379
-#    password: iampassword
-#    # 使用 lettuce 连接池需要引入 commons-pools2 包 group: 'org.apache.commons', name: 'commons-pool2', version: '2.6.0'
-#    lettuce:
-#      pool:
-#        max-active: 1000
-#        max-idle: 100
-#        min-idle: 20
+  redis:
+    database: 12
+    timeout: 10000
+    host: 192.168.13.171
+    port: 6379
+    password: iampassword
+    lettuce:
+      pool:
+        max-active: 1000
+        max-idle: 100
+        min-idle: 20
 eureka:
   instance:
     preferIpAddress: true
