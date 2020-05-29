@@ -45,7 +45,11 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.1.1</version>
         </dependency>
-
+        <!--数据源-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
         <!-- MySql数据库驱动 -->
         <dependency>
             <groupId>mysql</groupId>

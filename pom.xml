@@ -22,6 +22,7 @@
         <module>product-web</module>
         <module>user-facade</module>
         <module>user-web</module>
+        <module>shop-admin</module>
     </modules>
 
     <groupId>com.xuan</groupId>
