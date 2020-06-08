@@ -8,8 +8,10 @@
 *.mvn
 target
 logs
+log
 **/target
 **/logs
+**/log
 
 ### Eclipse ###
 .project

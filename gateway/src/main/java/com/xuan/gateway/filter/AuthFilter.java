@@ -83,32 +83,13 @@ public class AuthFilter implements GlobalFilter, Order {
 //            exchange.getResponse().getHeaders().set("Content-Type","application/json;charset=UTF-8");
 //            return exchange.getResponse().writeWith(Flux.just(buffer));
 //        }
-//
-//        LoginCacheVo loginCacheDTO = (LoginCacheVo)redisUtils.get(token);
-//        if(loginCacheDTO==null){
-//            response.setStatusCode(HttpStatus.OK);
-//            DataBuffer buffer = exchange.getResponse().bufferFactory().wrap(getResponse(ErrorCode.LOGIN_TOKEN_ACCESS_TIME_OUT_PLEASE_TRY_RELOGIN));
-//            exchange.getResponse().getHeaders().set("Content-Type","application/json;charset=UTF-8");
-//            return exchange.getResponse().writeWith(Flux.just(buffer));
-//        }
-        // 权限校验暂时未做
-//        if(!DataSourceConstants.Name.PLATFORM_DATA_SOURCE.equals(TenantUtils.getTenant())){
-//
-//            //判断权限 按钮权限时才能做到控制权限
-//            AuthUtils.setCurrentUser(loginCacheDTO);
-//            if(!loginCacheDTO.getUrls().contains(url)){
-//                throw new SaasException(ErrorCode.UNAUHORIZATION);
-//            }
-//        }
-        // 校验通过，放行
         return chain.filter(exchange.mutate().request(request).build());
     }
-
     @Override
     public Class<? extends Annotation> annotationType() {
         return null;
     }
-
+//
 //    private byte[] getResponse(ErrorCodeEnum errorCodeEnum){
 //        Map<String, String> map = new HashMap<>();
 //        map.put("code", errorCodeEnum.getCode()+"");

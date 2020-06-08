@@ -84,10 +84,12 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
-
+    logfile:
+      external-file: E:/workspace/shop/gateway/log/info.log
 hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 5000
 
 logging:
+  path:
   config: classpath:logback-spring.xml
   level:
     root: info

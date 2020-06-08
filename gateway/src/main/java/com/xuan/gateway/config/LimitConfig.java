@@ -1,4 +1,4 @@
-package com.xuan.gateway;
+package com.xuan.gateway.config;
 
 
 import com.xuan.gateway.resolver.HostAddrKeyResolver;
