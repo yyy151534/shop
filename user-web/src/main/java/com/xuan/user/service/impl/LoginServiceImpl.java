@@ -5,13 +5,16 @@ import com.xuan.user.service.LoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import static java.lang.Thread.sleep;
+
 @Slf4j
 @Service
 public class LoginServiceImpl implements LoginService {
     @Override
     public LoginCacheVo login() {
-        LoginCacheVo loginCacheVo = new LoginCacheVo();
-        loginCacheVo.setId(10000L);
-        return loginCacheVo;
+        for(int i=0;;i++){
+            LoginCacheVo loginCacheVo = new LoginCacheVo();
+            loginCacheVo.setId(10000L);
+        }
     }
 }
