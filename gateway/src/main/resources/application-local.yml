@@ -86,10 +86,3 @@ management:
       show-details: ALWAYS
 
 hystrix.command.fallbackcmd.execution.isolation.thread.timeoutInMilliseconds: 5000
-
-logging:
-  config: classpath:logback-spring.xml
-  level:
-    root: info
-log:
-  path: /home/admin/gateway/logs/

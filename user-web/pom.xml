@@ -9,13 +9,21 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.xuan</groupId>
     <artifactId>user-web</artifactId>
+    <version>${shop.version}</version>
     <packaging>jar</packaging>
+
 
     <dependencies>
         <dependency>
             <groupId>com.xuan</groupId>
             <artifactId>user-facade</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 </project>
