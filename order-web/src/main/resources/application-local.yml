@@ -77,6 +77,14 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
         loggerLevel: full
+        circuitBreaker:
+          requstVolumeThreshold: 20
+          sleepWindowInMilliseconds: 10000
+          errorThresholdPercentage: 60
+# 设置超时时间
+  httpclient:
+    connection-timeout: 20000
+
   # 开启熔断
   hystrix:
     enabled: true

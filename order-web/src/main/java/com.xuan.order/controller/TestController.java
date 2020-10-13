@@ -25,12 +25,13 @@ public class TestController {
      *              調用完后下次心跳檢測時把下綫狀態同步，後續不會調用該台user服務
      **/
     @RequestMapping("/test")
-    public void test(){
+    public String test(){
         RespVo respVo = userFacade.findPage();
         if(respVo.code == ErrorCodeEnum.SUCCESS.getCode()){
             System.out.println("respVo == " + respVo.data);
         }else{
             System.out.println("respVo --------------");
         }
+        return (String) respVo.data;
     }
 }

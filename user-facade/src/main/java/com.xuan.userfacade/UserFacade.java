@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @Date 2020/7/29 10:41
  **/
 
-@FeignClient(name = "user-web", path = "/api")
+@FeignClient(name = "user-web", path = "/api", fallback = UserFacadeFallBack.class)
 public interface UserFacade {
 
     @GetMapping("/findPage")
